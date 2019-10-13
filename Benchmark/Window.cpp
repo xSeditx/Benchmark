@@ -40,6 +40,9 @@ void Window::s_Position(int _x, int _y)
 int Gridsize = 10;
 #define GRID_COLOR      155,155,155,255
 #define BOARDER         100
+
+
+
 void DrawGraph(Window* _win)
 {
 	SDL_SetRenderDrawColor(_win->Context, GRID_COLOR);
