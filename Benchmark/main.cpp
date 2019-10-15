@@ -5,53 +5,41 @@
 #include<vector>
 #include<list>
 
-const int Samples = 1000;
+const int Samples = 1000000;
+
+
+
+
+
 
 using namespace std;
 int main()
 {
-	Window Win(640, 480, "Benchmark Tests");
- 	Benchmark 
-		Timer,
-	    Timer2;
-
-	list<int> A(Samples);
+	Window Win(1400, 800, "Benchmark Tests");
+ 
+	vector<int> A(Samples);
 	vector<int> B(Samples);
 
+	BENCH_MARK(BENCHA, Samples)
+		A.push_back(i);
+	END_BENCHMARK(BENCHA);
 
-	Timer.Start();
+	BENCH_MARK(BENCHB, Samples)
+		B.emplace_back(i);
+	END_BENCHMARK(BENCHB);
 
-	for (int i{ 0 }; i < Samples; i++)
-	{
-	//	A[i] = i;
-	}
 
- 
-	Timer.End();
 
-	Timer2.Start();
-	for (int i{ 0 }; i < Samples; i++)
-	{
-		B[i] = Samples;
-	}
-	//Print(A);
-	Timer2.End();
 
-	bool Running = true;
-	while (Running) 
-	{
-		SDL_Event event;
-		while (SDL_PollEvent(&event)) {
-			if (event.type == SDL_QUIT)
-			{
-				Running = false;
-			}
-		}
-		DrawGraph(&Win);
-		Win.Sync();
-		Win.CLS();
-	}
+	DISPLAY_BENCHMARKS
+	   DISPLAY(BENCHA);
+	   DISPLAY(BENCHB);
+	DISPLAY_END
 }
 
+//for (int a =1; a < 10000; ++a)
+//{
+// 	B[i] = B[i] / a;
+//}
 
 

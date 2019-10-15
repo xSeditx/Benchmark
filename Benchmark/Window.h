@@ -7,6 +7,15 @@
 #pragma comment(lib, "SDL2main.lib")
 #pragma comment(lib, "SDL2.lib" )
 
+
+
+#define Gridsize         10
+#define GRID_COLOR      55,55,55,55
+#define COLOR_BLACK      0, 0, 0,255
+#define BOARDER         10
+
+
+
 class Renderer;
 
 struct Window

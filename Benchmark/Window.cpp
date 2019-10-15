@@ -15,10 +15,10 @@ Window::Window(int _w, int _h, std::string _name)
 	Handle = SDL_CreateWindow(_name.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, _w, _h, SDL_WINDOW_RESIZABLE);//  SDL_WINDOW_BORDERLESS
 	Context = SDL_CreateRenderer(Handle, -1, SDL_RENDERER_ACCELERATED);          //new Renderer(Handle, SDL_RENDERER_ACCELERATED); /// Not sure bout this one yet | SDL_RENDERER_TARGETTEXTURE);
 	MainWindow = this;
+	SDL_SetRenderDrawBlendMode(Context,	SDL_BLENDMODE_BLEND);
 }
 void Window::Sync()
 {
-	//Context->Display();
 	SDL_RenderPresent(Context);
 }
 void Window::CLS()
@@ -35,13 +35,6 @@ void Window::s_Position(int _x, int _y)
 	SDL_SetWindowPosition(Handle, _x, _y);
 }
 
-
-
-
-
-int Gridsize = 10;
-#define GRID_COLOR      155,155,155,255
-#define BOARDER         100
 
 
 
