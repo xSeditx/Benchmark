@@ -8,17 +8,17 @@
 
 #include<algorithm>// Minmax algorithm
 #include<utility> // std::pair
-
+//Timer##
 /* Starts the Benchmark named str and Cycles it x amount of times.*/
-#define BENCH_MARK(str, _cycles)  Benchmark Timer##str(#str, _cycles);\
+#define BENCH_MARK(str, _cycles)  Benchmark str(#str, _cycles);\
 for(unsigned int i{0}; i < (_cycles); ++i){\
 
 
 
 /* Cycles the Loop and Samples the Timer. At the end it stops the Timer and Stores the values*/
-#define END_BENCHMARK(str)   Timer##str.Sample();\
+#define END_BENCHMARK(str)   str.Sample();\
 }\
-Timer##str.End()
+str.End()
 
 
 /* Renders an Event Loop which displays the Benchmark results */
@@ -40,7 +40,7 @@ DrawGraph(&Win);\
 }\
 
 
-#define DISPLAY(str)  Timer##str.Render(&Win, .01);
+#define DISPLAY(str)  str.Render(&Win, .01);
 
 
 #define Print(x)  std::cout << x << "\n"
@@ -61,7 +61,7 @@ typedef std::chrono::time_point<std::chrono::system_clock> SystemClock;
 typedef std::chrono::time_point<std::chrono::steady_clock> SteadyClock;
 typedef std::chrono::duration<float> fDuration;
 
-extern double MAX_GRAPH_VALUE;
+//extern double MAX_GRAPH_VALUE;
 
 class Benchmark
 {
@@ -73,7 +73,7 @@ public:
 	std::chrono::time_point<std::chrono::steady_clock>  StartTime;
 	unsigned long long  TotalTime;
 
-	std::vector<double> Values;
+	std::vector<long long> Values;
 
 	unsigned int Accumulator{ 0 };
 	unsigned int TotalSamplesTaken{ 0 };
